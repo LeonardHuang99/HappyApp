@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "29055210932",
+    "project_id": "happyapp-7b5d9",
+    "storage_bucket": "happyapp-7b5d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29055210932:android:00e9de664570a1ce05cee1",
+        "android_client_info": {
+          "package_name": "com.leonardhuang.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29055210932-v08ittt3jas14tj9627cq9a5ug0gpoe1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFjD1PutBm_-Xd71BzUHZ_fnKdc369ds8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29055210932-v08ittt3jas14tj9627cq9a5ug0gpoe1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
