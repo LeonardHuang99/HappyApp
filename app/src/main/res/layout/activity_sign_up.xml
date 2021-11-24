@@ -38,6 +38,7 @@
                 android:layout_height="@dimen/_60sdp"
                 android:src="@drawable/profile_picture"
                 android:scaleType="centerCrop"
+                android:onClick="imageProfileListeners"
                 app:riv_oval="true"/>
         </FrameLayout>
 
