@@ -3,18 +3,24 @@ package com.leonardhuang.chatapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 public class SignUpActivity extends AppCompatActivity {
 
     private TextView tw_signin;
     private String encodedImage;
     private Button button_signup;
+    private ProgressBar progressBar;
     private EditText input_fname;
     private EditText input_lname;
     private EditText input_email;
@@ -26,8 +32,13 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
         tw_signin = findViewById(R.id.textview_have_account);
+        button_signup = findViewById(R.id.button_signup);
+        input_fname = findViewById(R.id.input_fname);
+        input_lname = findViewById(R.id.input_lname);
+        input_email = findViewById(R.id.input_email);
+        input_password = findViewById(R.id.input_password);
+        input_confirm_password = findViewById(R.id.input_confirm_password);
     }
 
     public void signInListeners(View view) {
@@ -36,7 +47,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void signUpListeners(View view){
-        button_signup = findViewById(R.id.button_signup);
         button_signup.setOnClickListener(v -> {
             if(isValidSignUpDetails()){
                 signUp();
@@ -46,21 +56,23 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void showToast(String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-
     }
 
     private void signUp(){
 
     }
 
+    private String encodedImage(Bitmap bitmap){
+        int previewWidth = 150;
+        int previewHeight = bitmap.getHeight() * previewWidth / bitmap.getWidth();
+        Bitmap previewBitmap = Bitmap.createScaledBitmap(bitmap, previewWidth, previewHeight, false);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        previewBitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream);
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
+    }
+
     private Boolean isValidSignUpDetails(){
-
-        input_fname = findViewById(R.id.input_fname);
-        input_lname = findViewById(R.id.input_lname);
-        input_email = findViewById(R.id.input_email);
-        input_password = findViewById(R.id.input_password);
-        input_confirm_password = findViewById(R.id.input_confirm_password);
-
         if(encodedImage == null){
             showToast("Select profile image");
             return false;
@@ -81,6 +93,16 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         }else{
             return true;
+        }
+    }
+
+    private void loading(Boolean isLoading){
+        if(isLoading){
+            button_signup.setVisibility(View.INVISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
+        }else{
+            progressBar.setVisibility(View.INVISIBLE);
+            button_signup.setVisibility(View.VISIBLE);
         }
     }
 
