@@ -26,29 +26,9 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-
     public void signupListeners(View view) {
         Intent intent = new Intent(this,SignUpActivity.class);
         startActivity(intent);
-        Button button = (Button) findViewById(R.id.button_signin);
-        button.setOnClickListener(v -> addDataToFirestore());
-        //binding.buttonSignIn.setOnClickListener(v -> addDataToFirestore());
-    }
-
-    //a supprimer, pour test
-    private void addDataToFirestore(){
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("first_name", "Leonard");
-        data.put("last_name", "Le BG");
-        database.collection("users")
-                .add(data)
-                .addOnSuccessListener(documentReference -> {
-                    Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
-                })
-                .addOnFailureListener(exception -> {
-                    Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
-                });
     }
 
 }

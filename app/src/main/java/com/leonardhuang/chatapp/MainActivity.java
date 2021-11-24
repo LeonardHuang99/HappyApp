@@ -3,6 +3,7 @@ package com.leonardhuang.chatapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import android.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
