@@ -30,6 +30,8 @@ public class HomeActivity extends AppCompatActivity {
     public void signupListeners(View view) {
         Intent intent = new Intent(this,SignUpActivity.class);
         startActivity(intent);
+        Button button = (Button) findViewById(R.id.button_signin);
+        button.setOnClickListener(v -> addDataToFirestore());
         //binding.buttonSignIn.setOnClickListener(v -> addDataToFirestore());
     }
 
