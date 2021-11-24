@@ -3,12 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProject/ChatApp/app/src/main/res/drawable/background_icon.xml" value="0.2703125" />
         <entry key="..\:/AndroidProject/ChatApp/app/src/main/res/drawable/bg_input.xml" value="0.2703125" />
         <entry key="..\:/AndroidProject/ChatApp/app/src/main/res/layout/activity_home.xml" value="0.264" />
+        <entry key="..\:/AndroidProject/ChatApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidProject/ChatApp/app/src/main/res/layout/activity_sign_up.xml" value="0.4774951076320939" />
-        <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/layout/activity_home.xml" value="0.28940217391304346" />
-        <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
-        <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/layout/activity_sign_up.xml" value="0.28940217391304346" />
       </map>
     </option>
   </component>
