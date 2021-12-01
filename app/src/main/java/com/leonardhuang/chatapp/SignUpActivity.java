@@ -84,7 +84,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signUp(){
-        loading(true);
+        //loading(true);
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         HashMap<String,Object> user = new HashMap<>();
         user.put(Constants.KEY_FIRST_NAME,input_fname.getText().toString());
@@ -95,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
         database.collection(Constants.KEY_COLLECTION_USERS)
                 .add(user)
                 .addOnSuccessListener(documentReference -> {
-                    loading(false);
+                    //loading(false);
                     preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
                     preferenceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
                     preferenceManager.putString(Constants.KEY_FIRST_NAME, input_fname.getText().toString());
@@ -106,7 +106,7 @@ public class SignUpActivity extends AppCompatActivity {
                     startActivity(intent);
                 })
                 .addOnFailureListener(exception ->{
-                    loading(false);
+                    //loading(false);
                     showToast(exception.getMessage());
                 } );
     }
@@ -142,6 +142,8 @@ public class SignUpActivity extends AppCompatActivity {
     );
 
     private Boolean isValidSignUpDetails(){
+        final String password_string = input_password.getText().toString().trim();
+        final String confirm_password = input_confirm_password.getText().toString().trim();
         if(encodedImage == null){
             showToast("Select profile image");
             return false;
@@ -157,9 +159,14 @@ public class SignUpActivity extends AppCompatActivity {
         }else if(input_password.getText().toString().trim().isEmpty()){
             showToast("Enter valid password");
             return false;
-        }else if(input_confirm_password.getText().toString().equals(input_password.getText().toString())){
-            Log.i("debug", String.valueOf(input_password));
-            Log.i("debug", String.valueOf(input_confirm_password));
+        }else if (input_confirm_password.getText().toString().trim().isEmpty()){
+            showToast("Confirm your password");
+            return false;
+        }
+        else if(!password_string.equals(confirm_password)){
+            Log.d("Value of password is : ", input_password.getText().toString());
+            Log.d("Value of confirm password is : ", input_confirm_password.getText().toString());
+            Log.d("Value Last Name is : ", input_lname.getText().toString());
             showToast("Password and confirm password don't match");
             return false;
         }else{

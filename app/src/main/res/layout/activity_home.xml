@@ -44,7 +44,7 @@
             />
 
         <EditText
-            android:id="@+id/input_email"
+            android:id="@+id/input_email_signIn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_15sdp"
@@ -57,7 +57,7 @@
             android:paddingEnd="@dimen/_16sdp"/>
 
         <EditText
-            android:id="@+id/input_password"
+            android:id="@+id/input_password_signIn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
             android:layout_marginTop="@dimen/_30sdp"
@@ -80,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
                 android:layout_marginTop="@dimen/_70sdp"
+                android:onClick="buttonSignIn"
                 android:text="Sign In"
                 android:textSize="@dimen/_12ssp"/>
 

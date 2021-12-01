@@ -3,7 +3,7 @@ package com.leonardhuang.chatapp.utilities;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class PreferenceManager {
+public class  PreferenceManager {
 
     private final SharedPreferences sharedPreferences;
 
