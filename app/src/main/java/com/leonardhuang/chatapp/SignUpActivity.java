@@ -1,7 +1,6 @@
 package com.leonardhuang.chatapp;
 
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.leonardhuang.chatapp.utilities.Constants;
+import com.leonardhuang.chatapp.utilities.PreferenceManager;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.io.ByteArrayOutputStream;
@@ -40,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText input_password;
     private EditText input_confirm_password;
     private RoundedImageView image_profile;
+    private PreferenceManager preferenceManager;
 
 
     @Override
@@ -54,6 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
         input_email = findViewById(R.id.input_email);
         input_password = findViewById(R.id.input_password);
         input_confirm_password = findViewById(R.id.input_confirm_password);
+        preferenceManager = new PreferenceManager(getApplicationContext());
     }
 
     public void signInListeners(View view) {
@@ -92,10 +95,19 @@ public class SignUpActivity extends AppCompatActivity {
         database.collection(Constants.KEY_COLLECTION_USERS)
                 .add(user)
                 .addOnSuccessListener(documentReference -> {
-
+                    loading(false);
+                    preferenceManager.putBoolean(Constants.KEY_IS_SIGNED_IN, true);
+                    preferenceManager.putString(Constants.KEY_USER_ID, documentReference.getId());
+                    preferenceManager.putString(Constants.KEY_FIRST_NAME, input_fname.getText().toString());
+                    preferenceManager.putString(Constants.KEY_LAST_NAME, input_lname.getText().toString());
+                    preferenceManager.putString(Constants.KEY_IMAGE, encodedImage);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                 })
                 .addOnFailureListener(exception ->{
-
+                    loading(false);
+                    showToast(exception.getMessage());
                 } );
     }
 
@@ -127,7 +139,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }
                 }
             }
-    )
+    );
 
     private Boolean isValidSignUpDetails(){
         if(encodedImage == null){
@@ -145,7 +157,9 @@ public class SignUpActivity extends AppCompatActivity {
         }else if(input_password.getText().toString().trim().isEmpty()){
             showToast("Enter valid password");
             return false;
-        }else if(input_password.getText().toString().equals(input_confirm_password.getText().toString())){
+        }else if(input_confirm_password.getText().toString().equals(input_password.getText().toString())){
+            Log.i("debug", String.valueOf(input_password));
+            Log.i("debug", String.valueOf(input_confirm_password));
             showToast("Password and confirm password don't match");
             return false;
         }else{
