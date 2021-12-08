@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         loadUserDetails();
         getToken();
         setListeners();
+        //LEo
     }
 
     private void setListeners(){
