@@ -1,4 +1,4 @@
-package com.leonardhuang.chatapp;
+package com.leonardhuang.chatapp.activity;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.leonardhuang.chatapp.R;
 import com.leonardhuang.chatapp.utilities.Constants;
 import com.leonardhuang.chatapp.utilities.PreferenceManager;
 import com.makeramen.roundedimageview.RoundedImageView;

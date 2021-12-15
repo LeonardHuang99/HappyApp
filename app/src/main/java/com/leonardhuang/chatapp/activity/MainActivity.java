@@ -1,4 +1,4 @@
-package com.leonardhuang.chatapp;
+package com.leonardhuang.chatapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.leonardhuang.chatapp.R;
 import com.leonardhuang.chatapp.utilities.Constants;
 import com.leonardhuang.chatapp.utilities.PreferenceManager;
 
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         loadUserDetails();
         getToken();
         setListeners();
-        //LEo
     }
 
     private void setListeners(){

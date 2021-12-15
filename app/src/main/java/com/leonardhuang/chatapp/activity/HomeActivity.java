@@ -1,4 +1,4 @@
-package com.leonardhuang.chatapp;
+package com.leonardhuang.chatapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.leonardhuang.chatapp.R;
 import com.leonardhuang.chatapp.utilities.Constants;
 import com.leonardhuang.chatapp.utilities.PreferenceManager;
 
