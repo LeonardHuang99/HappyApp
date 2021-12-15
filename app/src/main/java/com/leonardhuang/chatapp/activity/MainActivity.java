@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textName;
     private ImageView imageProfileMain;
     private ImageView imageSignOutMain;
+    private FloatingActionButton addNewChatMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         textName = findViewById(R.id.textName);
         imageProfileMain = findViewById(R.id.imageProfileMain);
         imageSignOutMain = findViewById(R.id.imageSignOutMain);
+        addNewChatMain = findViewById(R.id.addNewChatMain);
         mPreferenceManager = new PreferenceManager(getApplicationContext());
         loadUserDetails();
         getToken();
@@ -42,7 +45,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setListeners(){
+
         imageSignOutMain.setOnClickListener(v -> signOut());
+        addNewChatMain.setOnClickListener(v ->
+                startActivity(new Intent(getApplicationContext(),UsersActivity.class)));
+
     }
 
     private void loadUserDetails() {
@@ -67,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                         mPreferenceManager.getString(Constants.KEY_USER_ID)
                 );
         documentReference.update(Constants.KEY_FCM_TOKEN, token)
-                .addOnSuccessListener(unused -> showToast("Token updated successfully"))
                 .addOnFailureListener(e -> showToast("Unable to update token"));
     }
 

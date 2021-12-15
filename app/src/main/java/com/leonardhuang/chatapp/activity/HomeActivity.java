@@ -26,9 +26,8 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPreferenceManager = new PreferenceManager(getApplicationContext());
         setContentView(R.layout.activity_home);
-
+        mPreferenceManager = new PreferenceManager(getApplicationContext());
         signIn_email = findViewById(R.id.input_email_signIn);
         signIn_password = findViewById(R.id.input_password_signIn);
 
