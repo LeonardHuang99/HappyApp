@@ -5,4 +5,6 @@
     <color name = "white">#FFFFFF</color>
     <color name = "bg_input">#60DBDEE1</color>
     <color name = "error">#df1010</color>
+    <color name = "blue_send">#04C2F0</color>
+    <color name = "chat_bg">#FFEEE9</color>
 </resources>

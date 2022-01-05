@@ -14,8 +14,10 @@
         <entry key="..\:/AndroidProject/ChatApp/app/src/main/res/layout/item_container_user.xml" value="0.2418478260869565" />
         <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/drawable/background_chat_input.xml" value="0.1" />
         <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/drawable/background_content_top.xml" value="0.1" />
-        <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/layout/activity_chat.xml" value="0.17806484295845998" />
+        <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/drawable/ic_info.xml" value="0.1" />
+        <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/layout/activity_chat.xml" value="0.22" />
         <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Rohail/Documents/GitHub/HappyApp/app/src/main/res/layout/item_container_sent_message.xml" value="0.1" />
       </map>
     </option>
   </component>
