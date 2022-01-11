@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.leonardhuang.chatapp.adapters.UsersAdapter;
+import com.leonardhuang.chatapp.listeners.UserListener;
 import com.leonardhuang.chatapp.models.User;
 import com.leonardhuang.chatapp.R;
 import com.leonardhuang.chatapp.utilities.Constants;
@@ -22,7 +24,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersActivity extends AppCompatActivity implements UserListener {
 
     private ProgressBar mProgressBarUsers;
     private PreferenceManager mPreferenceManager;
@@ -70,7 +72,7 @@ public class UsersActivity extends AppCompatActivity {
                             users.add(user);
                         }
                         if(users.size()>0){
-                            UsersAdapter usersAdapter = new UsersAdapter(users);
+                            UsersAdapter usersAdapter = new UsersAdapter(users,this);
                             mRecyclerViewUsers.setAdapter(usersAdapter);
                             mRecyclerViewUsers.setVisibility(View.VISIBLE);
                         }
@@ -94,4 +96,11 @@ public class UsersActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onUserClicked(User user) {
+        Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+        intent.putExtra(Constants.KEY_USER,user);
+        startActivity(intent);
+        finish();
+    }
 }
