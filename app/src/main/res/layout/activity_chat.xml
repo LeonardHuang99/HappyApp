@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/blue_send"
+    android:background="@color/off_yellow"
     tools:context=".activity.ChatActivity">
 
 
@@ -26,7 +26,7 @@
         android:layout_marginLeft="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_12sdp"
         android:padding="@dimen/_5sdp"
-        android:src="@drawable/back"
+        android:src="@drawable/transparent_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +99,7 @@
             android:layout_marginLeft="@dimen/_4sdp"
             android:padding="@dimen/_8sdp"
             android:src="@drawable/ic_send"
-            android:tint="@color/blue_send" />
+            android:tint="@color/off_yellow" />
 
     </FrameLayout>
 
@@ -119,8 +119,8 @@
         android:inputType="text"
         android:paddingStart="@dimen/_16sdp"
         android:paddingEnd="@dimen/_16sdp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/bg_input"
+        android:textColor="@color/black"
+        android:textColorHint="@color/off_grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/layoutSend"
         app:layout_constraintStart_toStartOf="parent" />
