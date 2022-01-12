@@ -1,7 +1,6 @@
 package com.leonardhuang.chatapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -20,7 +19,6 @@ import com.leonardhuang.chatapp.R;
 import com.leonardhuang.chatapp.utilities.Constants;
 import com.leonardhuang.chatapp.utilities.PreferenceManager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +34,7 @@ public class UsersActivity extends AppCompatActivity implements UserListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
-        mProgressBarUsers = findViewById(R.id.progressBarUsers);
+        mProgressBarUsers = findViewById(R.id.progressBar);
         mTextErrorUsers = findViewById(R.id.textErrorUsers);
         mRecyclerViewUsers = findViewById(R.id.usersRecyclerView);
         mBackImageUsers = findViewById(R.id.imageBack);
@@ -69,6 +67,7 @@ public class UsersActivity extends AppCompatActivity implements UserListener {
                             user.email = queryDocumentSnapshot.getString(Constants.KEY_EMAIL);
                             user.image = queryDocumentSnapshot.getString(Constants.KEY_IMAGE);
                             user.token = queryDocumentSnapshot.getString(Constants.KEY_FCM_TOKEN);
+                            user.id = queryDocumentSnapshot.getId();
                             users.add(user);
                         }
                         if(users.size()>0){
