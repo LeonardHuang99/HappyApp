@@ -51,7 +51,7 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         textName = findViewById(R.id.textName);
-        imageBack = findViewById(R.id.imageInfo);
+        imageBack = findViewById(R.id.imageBack);
         chatRecyclerView = findViewById(R.id.chatRecyclerView);
         inputMessage = findViewById(R.id.inputMessage);
         layoutSend = findViewById(R.id.layoutSend);
