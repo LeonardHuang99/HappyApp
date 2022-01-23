@@ -14,8 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/_16sdp"
-        android:alpha="0.1"
-        android:background="@drawable/message_background"
+        android:background="@drawable/chat_background_img"
+        android:alpha="0.7"
         app:layout_constraintBottom_toTopOf="@id/layoutSend"
         app:layout_constraintTop_toTopOf="parent" />
 

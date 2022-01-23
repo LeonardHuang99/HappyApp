@@ -38,7 +38,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageProfileContainer"/>
     
     <TextView
-        android:id="@+id/textEmailContainer"
+        android:id="@+id/textRecentMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
@@ -46,6 +46,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/off_grey"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageProfileContainer"
         app:layout_constraintTop_toBottomOf="@+id/viewSupporter"/>
