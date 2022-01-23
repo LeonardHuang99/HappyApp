@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textName = findViewById(R.id.textName);
-        imageProfileMain = findViewById(R.id.imageProfileMain);
+        imageProfileMain = findViewById(R.id.imageProfile);
         imageSignOutMain = findViewById(R.id.imageSignOutMain);
         addNewChatMain = findViewById(R.id.addNewChatMain);
         mPreferenceManager = new PreferenceManager(getApplicationContext());
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         imageSignOutMain.setOnClickListener(v -> signOut());
         addNewChatMain.setOnClickListener(v ->
                 startActivity(new Intent(getApplicationContext(),UsersActivity.class)));
+        imageProfileMain.setOnClickListener(v ->
+                startActivity(new Intent(getApplicationContext(),SettingsActivity.class)));
 
     }
 

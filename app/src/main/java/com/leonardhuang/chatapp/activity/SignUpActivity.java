@@ -184,6 +184,4 @@ public class SignUpActivity extends AppCompatActivity {
             button_signup.setVisibility(View.VISIBLE);
         }
     }
-
-
 }
