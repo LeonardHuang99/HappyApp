@@ -1,11 +1,11 @@
 # HappyApp - Group 12
 
-This is a Android Project for ISEP 
+This is an Android Project for ISEP 
 
-It was done by :
-HUANG Léonard - 10506
-SHABBIR Rohail - 10543
+It was done by :<br/>
+<br/>HUANG Léonard - 10506
+<br/>SHABBIR Rohail - 10543
 
-With the github account : 
-LeonardHuang99 = HUANG Léonard
-RohailSHABBIR10543 = SHABBIR Rohail 
+With the github account : <br/>
+<br/>LeonardHuang99 = HUANG Léonard
+<br/>RohailSHABBIR10543 = SHABBIR Rohail 
